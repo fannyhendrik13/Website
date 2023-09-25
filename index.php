@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,26 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="about.php">About</a></li>
                     <li><a href="kontak.php">Contact</a></li>
+                    <li>
+                        <a href="./admin/login.php">
+                            <?php 
+                                if (isset($_SESSION['username'])) {
+                                    echo $_SESSION['username'];
+                                }else{
+                                    echo "Login";
+                                }
+                            ?>
+                        </a>
+                    </li>
+                    <li>
+                        <?php 
+                            if (isset($_SESSION['username'])) {
+                                ?>
+                                <a href="./admin/logout.php">Logout</a>
+                                <?php
+                            }
+                        ?>
+                    </li>
                 </ul>
             </div>
     </nav>
